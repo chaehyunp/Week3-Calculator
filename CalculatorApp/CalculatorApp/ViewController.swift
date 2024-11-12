@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         setAnswer()
     }
 
-    
     ///  숫자 및 수식 입력, answer의 기본 세팅
     func setAnswer() {
         answer.text = "12345"
