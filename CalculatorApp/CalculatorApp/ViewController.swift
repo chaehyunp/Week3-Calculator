@@ -31,8 +31,7 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             answer.heightAnchor.constraint(equalToConstant: 100),
-            answer.widthAnchor.constraint(equalToConstant: view.bounds.width),
-//            answer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            answer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             answer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             answer.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
         ])
