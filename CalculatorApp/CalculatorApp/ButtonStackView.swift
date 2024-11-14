@@ -18,6 +18,7 @@ class ButtonStackView: UIStackView {
         self.spacing = spacing
         self.alignment = .fill
         self.distribution = .fillEqually
+        self.backgroundColor = UIColor.black
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     

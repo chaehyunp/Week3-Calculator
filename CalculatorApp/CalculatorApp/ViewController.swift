@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     ///
     ///   ``setButtonRow(_:)``
     private func setStackView(_ stackView: UIStackView, in item: [UIView], equal superView: UIView, constant: CGFloat) {
-        stackView.backgroundColor = UIColor.black
         stackView.addArrangedSubviews(item)
         view.addSubview(stackView)
         
