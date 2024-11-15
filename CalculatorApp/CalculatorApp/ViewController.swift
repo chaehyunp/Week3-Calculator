@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         
         setDisplayLabel()
-        setHStack(stackView, in: setButtonRow(firstRow), equal: displayLabel, constant: 50)
     }
 
     ///  숫자 및 수식 입력, answer의 기본 세팅
@@ -47,14 +46,9 @@ class ViewController: UIViewController {
     ///   - constant: 기준 뷰와 떨어질 값
     ///
     ///   ``setButtonRow(_:)``
-    private func setHStack(_ stackView: UIStackView, in item: [UIView], equal superView: UIView, constant: CGFloat) {
-        stackView.addArrangedSubviews(item)
-        view.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.heightAnchor.constraint(equalToConstant: 80),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.topAnchor.constraint(equalTo: superView.bottomAnchor, constant: constant)
-        ])
+    private func setHStack(_ stackViews: [UIStackView]) {
+        for (index, stackView) in stackViews.enumerated() {
+            
+        }
     }
 }
