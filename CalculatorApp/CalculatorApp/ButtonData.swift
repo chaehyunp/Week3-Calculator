@@ -38,7 +38,6 @@ class ButtonData {
                 config.attributedTitle = titleAttr
                 config.baseBackgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
                 config.baseForegroundColor = .white
-                config.cornerStyle = .capsule
                 
                 button.configuration = config
                 button.translatesAutoresizingMaskIntoConstraints = false

@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         
         setDisplayLabel()
+        setVStack()
     }
 
     ///  숫자 및 수식 입력, answer의 기본 세팅
