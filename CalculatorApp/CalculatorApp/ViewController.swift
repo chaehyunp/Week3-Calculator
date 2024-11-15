@@ -13,7 +13,12 @@ class ViewController: UIViewController {
     
     private let buttons = ButtonData()
     
-    private let stackView = ButtonStackView(axix: .horizontal, spacing: 10)
+    private let firstRowStack = ButtonStackView()
+    private let secondRowStack = ButtonStackView()
+    private let thirdRowStack = ButtonStackView()
+    private let fourthRowStack = ButtonStackView()
+    
+    private let numberButtonsStack = ButtonStackView(axix: .vertical)
 
     override func viewDidLoad() {
         super.viewDidLoad()
