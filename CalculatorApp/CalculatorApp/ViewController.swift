@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let answer: UILabel = UILabel()
+    private let displayLabel: UILabel = UILabel()
     
     private let stackView = ButtonStackView(axix: .horizontal, spacing: 10)
 
@@ -18,24 +18,24 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .black
         
-        setAnswer()
-        setStackView(stackView, in: setButtonRow(firstRow), equal: answer, constant: 50)
+        setDisplayLabel()
+        setHStack(stackView, in: setButtonRow(firstRow), equal: displayLabel, constant: 50)
     }
 
     ///  숫자 및 수식 입력, answer의 기본 세팅
-    private func setAnswer() {
-        answer.text = "12345"
-        answer.textColor = UIColor.white
-        answer.textAlignment = .right
-        answer.font = UIFont.systemFont(ofSize: 60, weight: .bold)
-        answer.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(answer)
+    private func setDisplayLabel() {
+        displayLabel.text = "12345"
+        displayLabel.textColor = UIColor.white
+        displayLabel.textAlignment = .right
+        displayLabel.font = UIFont.systemFont(ofSize: 60, weight: .bold)
+        displayLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(displayLabel)
                 
         NSLayoutConstraint.activate([
-            answer.heightAnchor.constraint(equalToConstant: 100),
-            answer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            answer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            answer.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+            displayLabel.heightAnchor.constraint(equalToConstant: 100),
+            displayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            displayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            displayLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
         ])
     }
     
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     ///   - constant: 기준 뷰와 떨어질 값
     ///
     ///   ``setButtonRow(_:)``
-    private func setStackView(_ stackView: UIStackView, in item: [UIView], equal superView: UIView, constant: CGFloat) {
+    private func setHStack(_ stackView: UIStackView, in item: [UIView], equal superView: UIView, constant: CGFloat) {
         stackView.addArrangedSubviews(item)
         view.addSubview(stackView)
         
