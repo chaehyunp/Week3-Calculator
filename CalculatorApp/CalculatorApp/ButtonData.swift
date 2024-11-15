@@ -7,22 +7,25 @@
 
 import UIKit
 
+/// 버튼의 데이터를 관리하는 메소드
 class ButtonData {
+    
     // 계산기에 들어갈 버튼 선언
     let firstRow = ["7", "8", "9", "+"]
     let secondRow = ["4", "5", "6", "-"]
     let thirdRow = ["1", "2", "3", "*"]
     let fourthRow = ["AC", "0", "=", "/"]
     
+    // 버튼을 관리하는 목록
     var buttonRowList: [[String]]
     
     init() {
         self.buttonRowList = [firstRow, secondRow, thirdRow, fourthRow]
     }
     
-    /// 파라미터 변수를 UIButton 배열로 반환해주는 함수
-    /// - Parameter rows: UIButton으로 변환할 데이터
-    /// - Returns: 변환된 UIButton을 담은 배열 -> [UIButton]
+    /// UIButton을 생성 및 세팅하고 반환하는 메소드
+    /// - Parameter rows: 버튼 title 값을 담은 String 배열
+    /// - Returns: 각 row 별로 구분된 UIButton 배열을 담은 배열을 반환
     func setButtonRow(_ rows: [[String]]) -> [[UIButton]] {
         var buttons = [UIButton]()
         var buttonsList = [[UIButton]]()
