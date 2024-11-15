@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		83EED7292CE7643900746692 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83EED7282CE7643900746692 /* SnapKit */; };
-		83EED72B2CE7643900746692 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 83EED72A2CE7643900746692 /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83EED7292CE7643900746692 /* SnapKit in Frameworks */,
-				83EED72B2CE7643900746692 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +84,6 @@
 			name = "Week3-Calculator";
 			packageProductDependencies = (
 				83EED7282CE7643900746692 /* SnapKit */,
-				83EED72A2CE7643900746692 /* SnapKit-Dynamic */,
 			);
 			productName = "Week3-Calculator";
 			productReference = 83EED6B02CE6E66500746692 /* Week3-Calculator.app */;
@@ -360,11 +357,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 83EED7272CE7643900746692 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		83EED72A2CE7643900746692 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 83EED7272CE7643900746692 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
