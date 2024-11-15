@@ -11,17 +11,34 @@ import SnapKit
 class ViewController: UIViewController {
     
     private let valueLabel = UILabel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .black
         
         configureLabel()
-        configureHStackView([configureButton(what: "7"),
-                             configureButton(what: "8"),
-                             configureButton(what: "9"),
-                             configureButton(what: "+")])
+        let plusRow = configureHStackView([configureButton(what: "7"),
+                                           configureButton(what: "8"),
+                                           configureButton(what: "9"),
+                                           configureButton(what: "+")])
+        
+        let minusRow = configureHStackView([configureButton(what: "4"),
+                                            configureButton(what: "5"),
+                                            configureButton(what: "6"),
+                                            configureButton(what: "-")])
+        
+        let multiplyRow = configureHStackView([configureButton(what: "1"),
+                                               configureButton(what: "2"),
+                                               configureButton(what: "3"),
+                                               configureButton(what: "*")])
+        
+        let divisionRow = configureHStackView([configureButton(what: "AC"),
+                                               configureButton(what: "0"),
+                                               configureButton(what: "="),
+                                               configureButton(what: "/")])
+        
+        configureVStackView([plusRow, minusRow, multiplyRow, divisionRow])
     }
     
     private func configureLabel() {
@@ -55,10 +72,10 @@ class ViewController: UIViewController {
         numberButton.layer.cornerRadius = 40
         
         return numberButton
-
+        
     }
     
-    private func configureHStackView(_ views: [UIButton]) {
+    private func configureHStackView(_ views: [UIButton]) -> UIStackView {
         
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
@@ -73,14 +90,34 @@ class ViewController: UIViewController {
         
         hStackView.snp.makeConstraints{
             $0.height.equalTo(80)
-            $0.top.equalTo(valueLabel.snp.bottom).offset(100)
             $0.leading.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().offset(-30)
         }
         
-
+        return hStackView
         
     }
-
+    
+    private func configureVStackView(_ stacks: [UIStackView]) {
+        
+        let vStackView = UIStackView()
+        vStackView.axis = .vertical
+        vStackView.backgroundColor = .black
+        vStackView.spacing = 10
+        vStackView.distribution = .fillEqually
+        for index in 0...stacks.count - 1 {
+            vStackView.addArrangedSubview(stacks[index])
+        }
+        vStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(vStackView)
+        
+        vStackView.snp.makeConstraints{
+            $0.width.equalTo(350)
+            $0.top.equalTo(valueLabel.snp.bottom).offset(60)
+            $0.centerX.equalToSuperview()
+        }
+        
+    }
+    
 }
 
