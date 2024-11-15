@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         setVStack()
     }
 
-    ///  숫자 및 수식 입력, answer의 기본 세팅
+    ///  숫자 및 수식 입력, displayLabel의 기본 세팅
     private func setDisplayLabel() {
         displayLabel.text = "12345"
         displayLabel.textColor = UIColor.white
@@ -46,6 +46,10 @@ class ViewController: UIViewController {
         ])
     }
     
+    /// 다수의 스택뷰에 아이템을 추가하는 메소드
+    /// - Parameter stackViews: 아이템을 추가할 스택뷰 배열
+    ///
+    /// ``setButtonRow``
     private func setHStack(_ stackViews: [UIStackView]) {
         for (index, stackView) in stackViews.enumerated() {
             let item = buttons.setButtonRow(buttons.buttonRowList)
@@ -53,6 +57,9 @@ class ViewController: UIViewController {
         }
     }
     
+    /// vertical 스택뷰를 세팅하는 메소드
+    ///
+    /// ``setHStack``
     private func setVStack() {
         setHStack([firstRowStack,
                    secondRowStack,
