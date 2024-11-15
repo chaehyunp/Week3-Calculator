@@ -47,7 +47,8 @@ class ViewController: UIViewController {
     
     private func setHStack(_ stackViews: [UIStackView]) {
         for (index, stackView) in stackViews.enumerated() {
-            
+            let item = buttons.setButtonRow(buttons.buttonRowList)
+            stackView.addArrangedSubviews(item[index])
         }
     }
     
