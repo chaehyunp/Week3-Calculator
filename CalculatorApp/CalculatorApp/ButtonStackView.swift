@@ -10,7 +10,7 @@ import UIKit
 /// 커스텀 스택뷰
 class ButtonStackView: UIStackView {
     
-    init(axix: NSLayoutConstraint.Axis = .vertical, spacing: CGFloat = 10) {
+    init(axix: NSLayoutConstraint.Axis = .horizontal, spacing: CGFloat = 10) {
         super.init(frame: .zero)
         
         // 스택 뷰 기본 설정
