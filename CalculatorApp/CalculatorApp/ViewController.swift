@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     private let displayLabel: UILabel = UILabel()
     
+    private let buttons = ButtonData()
+    
     private let stackView = ButtonStackView(axix: .horizontal, spacing: 10)
 
     override func viewDidLoad() {
