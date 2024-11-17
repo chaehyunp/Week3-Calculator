@@ -11,10 +11,12 @@ import UIKit
 class ButtonData {
     
     // 계산기에 들어갈 버튼 선언
-    let firstRow = ["7", "8", "9", "+"]
-    let secondRow = ["4", "5", "6", "-"]
-    let thirdRow = ["1", "2", "3", "*"]
-    let fourthRow = ["AC", "0", "=", "/"]
+    private let firstRow = ["7", "8", "9", "+"]
+    private let secondRow = ["4", "5", "6", "-"]
+    private let thirdRow = ["1", "2", "3", "*"]
+    private let fourthRow = ["AC", "0", "=", "/"]
+    
+    weak var deleget: ButtonDataDelegate?
     
     // 버튼을 관리하는 목록
     var buttonRowList: [[String]]
