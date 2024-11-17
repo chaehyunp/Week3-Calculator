@@ -89,5 +89,14 @@ class ButtonData {
             return UIColor.orange
         }
     }
+    
+    /// 버튼 클릭시 버튼의 타이틀 값(String)을 델리게이트로 전달하는 메소드
+    /// - Parameter button: 값을 전달할 버튼
+    ///
+    /// ``didTapButton``
+    @objc private func passDataToDelegate(_ button: UIButton) {
+        guard let text = button.titleLabel?.text else { return }
+        deleget?.didTapButton(with: text)
+    }
 }
 
