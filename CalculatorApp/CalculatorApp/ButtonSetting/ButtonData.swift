@@ -41,6 +41,7 @@ class ButtonData {
                 config.attributedTitle = titleAttr
                 config.baseBackgroundColor = changeColor(to: button)
                 config.baseForegroundColor = .white
+                config.cornerStyle = .capsule
                 
                 button.configuration = config
                 button.translatesAutoresizingMaskIntoConstraints = false
