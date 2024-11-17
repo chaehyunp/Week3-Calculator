@@ -46,6 +46,7 @@ class ButtonData {
                 config.cornerStyle = .capsule
                 
                 button.configuration = config
+                button.addTarget(self, action: #selector(passDataToDelegate), for: .touchDown)
                 button.translatesAutoresizingMaskIntoConstraints = false
                 
                 button.configurationUpdateHandler = { [self] in 
