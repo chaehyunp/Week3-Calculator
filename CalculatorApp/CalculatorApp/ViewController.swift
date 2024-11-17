@@ -13,6 +13,8 @@ class ViewController: UIViewController, ButtonDataDelegate {
     
     private let buttons = ButtonData()
     
+    private let calculator = Calculator()
+    
     private let firstRowStack = ButtonStackView()
     private let secondRowStack = ButtonStackView()
     private let thirdRowStack = ButtonStackView()
