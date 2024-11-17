@@ -39,20 +39,20 @@ class ButtonData {
                 titleAttr.font = .systemFont(ofSize: 30, weight: .bold)
                 
                 config.attributedTitle = titleAttr
-                config.baseBackgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+                config.baseBackgroundColor = changeColor(to: button)
                 config.baseForegroundColor = .white
                 
                 button.configuration = config
                 button.translatesAutoresizingMaskIntoConstraints = false
                 
-                button.configurationUpdateHandler = { 
+                button.configurationUpdateHandler = { [self] in 
                     switch $0.state {
                     case .normal:
-                        $0.configuration?.baseBackgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+                        $0.configuration?.baseBackgroundColor = changeColor(to: button)
                         $0.configuration?.baseForegroundColor = .white
                         
                     case .highlighted:
-                        $0.configuration?.baseBackgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0).withAlphaComponent(0.7)
+                        $0.configuration?.baseBackgroundColor = changeColor(to: button).withAlphaComponent(0.7)
                         $0.configuration?.baseForegroundColor = .white.withAlphaComponent(0.7)
                         
                     default:
@@ -74,6 +74,17 @@ class ButtonData {
         }
         
         return buttonsList
+    }
+    
+    /// 버튼의 색을 변경하는 메소드
+    /// - Parameter button: 컬러를 변경할 버튼 파라미터
+    /// - Returns: 조건에 따라 각 타입에 따른 UIColor 값을 반환
+    private func changeColor(to button: UIButton) -> UIColor {
+        if let _ = Int(button.titleLabel?.text ?? "") {
+            return UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        } else {
+            return UIColor.orange
+        }
     }
 }
 
