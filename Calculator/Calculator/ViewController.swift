@@ -125,54 +125,63 @@ private extension ViewController {
                 numericDisplay.text?.append(String(number))
             }
         } else {
-            switch title {
-            case "+":
-                if lastCharNotOperator {
-                    numericDisplay.text?.append("+")
-                }
-                
-            case "-":
-                if lastCharNotOperator {
-                    numericDisplay.text?.append("-")
-                }
-                
-            case "*":
-                if lastCharNotOperator {
-                    numericDisplay.text?.append("*")
-                }
-                
-            case "/":
-                if lastCharNotOperator {
-                    numericDisplay.text?.append("/")
-                }
-                
-            case "=":
-                guard let expression = numericDisplay.text else {
-                    return
-                }
-                guard lastCharNotOperator else {
-                    return
-                }
-                guard let result = calculate(expression: expression) else {
-                    return
-                }
-                numericDisplay.text = String(result)
-                
-            case "AC":
-                numericDisplay.text = "0"
-                
-            default:
-                break
-            }
+            handleTitle(title)
         }
     }
 }
 
 private extension ViewController {
+    func handleTitle(_ title: String) {
+        switch title {
+        case "+":
+            if lastCharNotOperator {
+                numericDisplay.text?.append("+")
+            }
+            
+        case "-":
+            if lastCharNotOperator {
+                numericDisplay.text?.append("-")
+            }
+            
+        case "*":
+            if lastCharNotOperator {
+                numericDisplay.text?.append("*")
+            }
+            
+        case "/":
+            if lastCharNotOperator {
+                numericDisplay.text?.append("/")
+            }
+            
+        case "=":
+            ifAvailableCalculateAndShowResult()
+            
+        case "AC":
+            numericDisplay.text = "0"
+            
+        default:
+            break
+        }
+    }
+    
     var lastCharNotOperator: Bool {
         let char = numericDisplay.text?.last
         return !["+", "-", "*", "/"].contains(char)
     }
+    
+    func ifAvailableCalculateAndShowResult() {
+        guard let expression = numericDisplay.text else {
+            return
+        }
+        guard lastCharNotOperator else {
+            return
+        }
+        guard let result = calculate(expression: expression) else {
+            return
+        }
+        numericDisplay.text = String(result)
+    }
+    
     
     func calculate(expression: String) -> Int? {
         let expression = NSExpression(format: expression)
