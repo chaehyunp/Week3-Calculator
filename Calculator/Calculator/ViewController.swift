@@ -163,10 +163,10 @@ private extension ViewController {
     }
     
     func ifAvailableCalculateAndShowResult() {
-        guard let expression = numericDisplay.text else {
+        guard lastCharNotOperator else {
             return
         }
-        guard lastCharNotOperator else {
+        guard let expression = numericDisplay.text else {
             return
         }
         guard let result = calculate(expression: expression) else {
