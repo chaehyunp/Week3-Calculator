@@ -15,7 +15,7 @@ extension UIColor {
 final class ViewController: UIViewController {
     private let numericDisplay: UILabel = {
         let label = UILabel()
-        label.text = "12345"
+        label.text = "0"
         label.textAlignment = .right
         label.font = .systemFont(ofSize: 60, weight: .bold)
         label.textColor = .white
@@ -90,6 +90,7 @@ private extension ViewController {
         button.backgroundColor = backgroundColor
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         button.layer.cornerRadius = 40
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }
     
@@ -108,6 +109,59 @@ private extension ViewController {
         }
         let stackView = makeHorizontalStackView(buttonViews)
         return stackView
+    }
+}
+
+private extension ViewController {
+    @objc
+    func buttonTapped(_ sender: UIButton) {
+        guard let title = sender.title(for: .normal) else {
+            return
+        }
+        if let number = Int(title) {
+            if numericDisplay.text == "0" {
+                numericDisplay.text = String(number)
+            } else {
+                numericDisplay.text?.append(String(number))
+            }
+        } else {
+            switch title {
+            case "+":
+                if lastCharNotOperator {
+                    numericDisplay.text?.append("+")
+                }
+                
+            case "-":
+                if lastCharNotOperator {
+                    numericDisplay.text?.append("-")
+                }
+                
+            case "*":
+                if lastCharNotOperator {
+                    numericDisplay.text?.append("*")
+                }
+                
+            case "/":
+                if lastCharNotOperator {
+                    numericDisplay.text?.append("/")
+                }
+                
+            case "=":
+                // 연산 수행
+                break
+                
+            case "AC":
+                numericDisplay.text = "0"
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    private var lastCharNotOperator: Bool {
+        let char = numericDisplay.text?.last
+        return !["+", "-", "*", "/"].contains(char)
     }
 }
 
