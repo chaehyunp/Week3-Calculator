@@ -13,6 +13,8 @@ extension UIColor {
 }
 
 final class ViewController: UIViewController {
+    // MARK: - Views
+    /// 숫자 디스플레이
     private let numericDisplay: UILabel = {
         let label = UILabel()
         label.text = "0"
@@ -22,6 +24,7 @@ final class ViewController: UIViewController {
         return label
     }()
     
+    /// 키패드 스택뷰
     private lazy var keypad: UIStackView = {
         let stackView = UIStackView(
             arrangedSubviews: [
@@ -50,11 +53,13 @@ final class ViewController: UIViewController {
         return stackView
     }()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
+    // MARK: - Configuration
     private func configureUI() {
         view.backgroundColor = .black
         
@@ -82,6 +87,7 @@ final class ViewController: UIViewController {
     }
 }
 
+// MARK: View Factories
 private extension ViewController {
     func makeButton(_ title: String, backgroundColor: UIColor) -> UIButton {
         let button = UIButton()
@@ -112,6 +118,7 @@ private extension ViewController {
     }
 }
 
+// MARK: - Objc Functions
 private extension ViewController {
     @objc
     func buttonTapped(_ sender: UIButton) {
@@ -130,6 +137,7 @@ private extension ViewController {
     }
 }
 
+// MARK: Business logics
 private extension ViewController {
     func handleTitle(_ title: String) {
         switch title {
@@ -181,7 +189,6 @@ private extension ViewController {
         }
         numericDisplay.text = String(result)
     }
-    
     
     func calculate(expression: String) -> Int? {
         let expression = NSExpression(format: expression)
