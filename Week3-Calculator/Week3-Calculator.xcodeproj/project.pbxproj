@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		83C8E2262CECE2F7005780E6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C8E2252CECE2F7005780E6 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		83EED6B02CE6E66500746692 /* Week3-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week3-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C8E2262CECE2F7005780E6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "Week3-Calculator";
 			packageProductDependencies = (
+				83C8E2252CECE2F7005780E6 /* SnapKit */,
 			);
 			productName = "Week3-Calculator";
 			productReference = 83EED6B02CE6E66500746692 /* Week3-Calculator.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 83EED6A72CE6E66500746692;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				83C8E2242CECE2F7005780E6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 83EED6B12CE6E66500746692 /* Products */;
 			projectDirPath = "";
@@ -331,6 +340,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		83C8E2242CECE2F7005780E6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		83C8E2252CECE2F7005780E6 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83C8E2242CECE2F7005780E6 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83EED6A82CE6E66500746692 /* Project object */;
 }
