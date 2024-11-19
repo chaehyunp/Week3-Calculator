@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension UIColor {
+    static let numberBackground = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+    static let operatorBackground = UIColor.orange
+}
+
 final class ViewController: UIViewController {
     private let numericDisplay: UILabel = {
         let label = UILabel()
@@ -18,12 +23,26 @@ final class ViewController: UIViewController {
     }()
     
     private lazy var keypad: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            makeKeypadRow(["7", "8", "9", "+"]),
-            makeKeypadRow(["4", "5", "6", "-"]),
-            makeKeypadRow(["1", "2", "3", "*"]),
-            makeKeypadRow(["AC", "0", "=", "/"])
-        ])
+        let stackView = UIStackView(
+            arrangedSubviews: [
+                makeKeypadRow(
+                    ["7", "8", "9", "+"],
+                    [.numberBackground, .numberBackground, .numberBackground, .orange]
+                ),
+                makeKeypadRow(
+                    ["4", "5", "6", "-"],
+                    [.numberBackground, .numberBackground, .numberBackground, .orange]
+                ),
+                makeKeypadRow(
+                    ["1", "2", "3", "*"],
+                    [.numberBackground, .numberBackground, .numberBackground, .orange]
+                ),
+                makeKeypadRow(
+                    ["AC", "0", "=", "/"],
+                    [.orange, .numberBackground, .orange, .orange]
+                )
+            ]
+        )
         stackView.axis = .vertical
         stackView.backgroundColor = .black
         stackView.spacing = 10
@@ -64,11 +83,11 @@ final class ViewController: UIViewController {
 }
 
 private extension ViewController {
-    func makeButton(_ title: String) -> UIButton {
+    func makeButton(_ title: String, backgroundColor: UIColor) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        button.backgroundColor = backgroundColor
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         return button
     }
@@ -82,8 +101,10 @@ private extension ViewController {
         return stackView
     }
     
-    func makeKeypadRow(_ titles: [String]) -> UIStackView {
-        let buttonViews = titles.map { makeButton($0) }
+    func makeKeypadRow(_ titles: [String], _ backgroundColors: [UIColor]) -> UIStackView {
+        let buttonViews = zip(titles, backgroundColors).map {
+            makeButton($0, backgroundColor: $1)
+        }
         let stackView = makeHorizontalStackView(buttonViews)
         return stackView
     }
