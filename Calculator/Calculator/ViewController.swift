@@ -141,24 +141,9 @@ private extension ViewController {
 private extension ViewController {
     func handleTitle(_ title: String) {
         switch title {
-        case "+":
+        case "+", "-", "*", "/":
             if lastCharNotOperator {
-                numericDisplay.text?.append("+")
-            }
-            
-        case "-":
-            if lastCharNotOperator {
-                numericDisplay.text?.append("-")
-            }
-            
-        case "*":
-            if lastCharNotOperator {
-                numericDisplay.text?.append("*")
-            }
-            
-        case "/":
-            if lastCharNotOperator {
-                numericDisplay.text?.append("/")
+                numericDisplay.text?.append(title)
             }
             
         case "=":
