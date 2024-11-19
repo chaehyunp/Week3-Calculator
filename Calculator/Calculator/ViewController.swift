@@ -147,8 +147,16 @@ private extension ViewController {
                 }
                 
             case "=":
-                // 연산 수행
-                break
+                guard let expression = numericDisplay.text else {
+                    return
+                }
+                guard lastCharNotOperator else {
+                    return
+                }
+                guard let result = calculate(expression: expression) else {
+                    return
+                }
+                numericDisplay.text = String(result)
                 
             case "AC":
                 numericDisplay.text = "0"
@@ -158,10 +166,21 @@ private extension ViewController {
             }
         }
     }
-    
-    private var lastCharNotOperator: Bool {
+}
+
+private extension ViewController {
+    var lastCharNotOperator: Bool {
         let char = numericDisplay.text?.last
         return !["+", "-", "*", "/"].contains(char)
+    }
+    
+    func calculate(expression: String) -> Int? {
+        let expression = NSExpression(format: expression)
+        if let result = expression.expressionValue(with: nil, context: nil) as? Int {
+            return result
+        } else {
+            return nil
+        }
     }
 }
 
