@@ -89,6 +89,7 @@ private extension ViewController {
         button.titleLabel?.font = .boldSystemFont(ofSize: 30)
         button.backgroundColor = backgroundColor
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        button.layer.cornerRadius = 40
         return button
     }
     
