@@ -17,53 +17,18 @@ final class ViewController: UIViewController {
         return label
     }()
     
-    private let keypadSeven: UIButton = {
-        let button = UIButton()
-        button.setTitle("7", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        button.layer.cornerRadius = 40
-        return button
-    }()
-    
-    private let keypadEight: UIButton = {
-        let button = UIButton()
-        button.setTitle("8", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        button.layer.cornerRadius = 40
-        return button
-    }()
-    
-    private let keypadNine: UIButton = {
-        let button = UIButton()
-        button.setTitle("9", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        button.layer.cornerRadius = 40
-        return button
-    }()
-    
-    private let keypadPlus: UIButton = {
-        let button = UIButton()
-        button.setTitle("+", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        button.layer.cornerRadius = 40
-        return button
-    }()
-    
-    private lazy var keypadRow: UIStackView = {
-        makeHorizontalStackView([
-            keypadSeven,
-            keypadEight,
-            keypadNine,
-            keypadPlus
+    private lazy var keypad: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            makeKeypadRow(["7", "8", "9", "+"]),
+            makeKeypadRow(["4", "5", "6", "-"]),
+            makeKeypadRow(["1", "2", "3", "*"]),
+            makeKeypadRow(["AC", "0", "=", "/"])
         ])
+        stackView.axis = .vertical
+        stackView.backgroundColor = .black
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
     }()
     
     override func viewDidLoad() {
@@ -76,7 +41,7 @@ final class ViewController: UIViewController {
         
         let subViews = [
             numericDisplay,
-            keypadRow
+            keypad
         ]
         
         subViews.forEach {
@@ -90,21 +55,36 @@ final class ViewController: UIViewController {
             numericDisplay.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             numericDisplay.heightAnchor.constraint(equalToConstant: 100),
             
-            keypadRow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            keypadRow.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            keypadRow.topAnchor.constraint(equalTo: numericDisplay.bottomAnchor, constant: 50),
-            keypadRow.heightAnchor.constraint(equalToConstant: 80),
+            keypad.topAnchor.constraint(equalTo: numericDisplay.bottomAnchor, constant: 60),
+            keypad.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            keypad.widthAnchor.constraint(equalToConstant: 350),
+            keypad.heightAnchor.constraint(equalToConstant: 350)
         ])
     }
 }
 
 private extension ViewController {
+    func makeButton(_ title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        button.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        return button
+    }
+    
     func makeHorizontalStackView(_ views: [UIView]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = .horizontal
         stackView.backgroundColor = .black
         stackView.spacing = 10
         stackView.distribution = .fillEqually
+        return stackView
+    }
+    
+    func makeKeypadRow(_ titles: [String]) -> UIStackView {
+        let buttonViews = titles.map { makeButton($0) }
+        let stackView = makeHorizontalStackView(buttonViews)
         return stackView
     }
 }
