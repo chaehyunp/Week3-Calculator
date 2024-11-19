@@ -10,7 +10,7 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    private let valueLabel = UILabel()
+    private var valueLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-        
+
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -65,8 +65,20 @@ class ViewController: UIViewController {
         numberButton.frame.size.width = LayoutSize.buttonSize
         numberButton.frame.size.height = LayoutSize.buttonSize
         numberButton.layer.cornerRadius = LayoutSize.buttonCornerRadius
+        numberButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
         
         return numberButton
+        
+    }
+    
+    @objc
+    private func onTapButton(sender: UIButton) {
+        
+        valueLabel.text = if valueLabel.text == "0" {
+                            sender.currentTitle ?? ""
+                        } else {
+                            (valueLabel.text ?? "") + (sender.currentTitle ?? "")
+                        }
         
     }
     
