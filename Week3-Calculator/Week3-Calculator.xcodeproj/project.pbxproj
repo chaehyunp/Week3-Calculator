@@ -5,7 +5,6 @@
 	};
 	objectVersion = 77;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		83C8E1DA2CEB13A5005780E6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C8E1D92CEB13A5005780E6 /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -340,7 +339,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		83C8E1D82CEB13A5005780E6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;

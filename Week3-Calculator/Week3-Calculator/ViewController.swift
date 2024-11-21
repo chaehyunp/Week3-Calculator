@@ -44,12 +44,10 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
             $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
-        
     }
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -68,7 +66,6 @@ class ViewController: UIViewController {
         numberButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
         
         return numberButton
-        
     }
     
     @objc
@@ -78,13 +75,12 @@ class ViewController: UIViewController {
             valueLabel.text = "0"
             return
         }
-        
+      
         valueLabel.text = if valueLabel.text == "0" {
                             sender.currentTitle ?? ""
                         } else {
                             (valueLabel.text ?? "") + (sender.currentTitle ?? "")
                         }
-        
     }
     
     // MARK: - 가로로 버튼 4개 가지는 StackView
@@ -106,9 +102,7 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
             $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
-        
         return hStackView
-        
     }
     
     // MARK: - 버튼 요소 이름 받아서 버튼 만들고 StackView로 4개 묶어서 리턴
@@ -116,7 +110,6 @@ class ViewController: UIViewController {
         let buttons = buttonTitles.map{ configureButton(buttonTitle: $0) }
         return makeHStackView(buttons)
     }
-    
     
     // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
     private func makeVStackView(_ buttonRows: [UIStackView]) {
@@ -136,8 +129,7 @@ class ViewController: UIViewController {
             $0.width.equalTo(LayoutSize.stackWidth)
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
-        }
-        
+        } 
     }
-    
 }
+
