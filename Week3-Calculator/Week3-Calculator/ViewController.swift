@@ -44,7 +44,6 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
             $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
-        
     }
     
     // MARK: - 버튼
@@ -68,7 +67,6 @@ class ViewController: UIViewController {
         numberButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
         
         return numberButton
-        
     }
     
     @objc
@@ -87,8 +85,6 @@ class ViewController: UIViewController {
         valueLabel.text = valueLabel.text == "0"
                         ? sender.currentTitle ?? ""
                         : (valueLabel.text ?? "") + (sender.currentTitle ?? "")
-        
-        
     }
     
     // MARK: - 가로로 버튼 4개 가지는 StackView
@@ -112,7 +108,6 @@ class ViewController: UIViewController {
         }
         
         return hStackView
-        
     }
     
     // MARK: - 버튼 요소 이름 받아서 버튼 만들고 StackView로 4개 묶어서 리턴
@@ -141,7 +136,6 @@ class ViewController: UIViewController {
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
         }
-        
     }
     
     // MARK: - 계산 기능
