@@ -18,106 +18,108 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         
         configureLabel()
-        let plusRow = configureHStackView([configureButton(what: "7"),
-                                           configureButton(what: "8"),
-                                           configureButton(what: "9"),
-                                           configureButton(what: "+")])
         
-        let minusRow = configureHStackView([configureButton(what: "4"),
-                                            configureButton(what: "5"),
-                                            configureButton(what: "6"),
-                                            configureButton(what: "-")])
-        
-        let multiplyRow = configureHStackView([configureButton(what: "1"),
-                                               configureButton(what: "2"),
-                                               configureButton(what: "3"),
-                                               configureButton(what: "*")])
-        
-        let divisionRow = configureHStackView([configureButton(what: "AC"),
-                                               configureButton(what: "0"),
-                                               configureButton(what: "="),
-                                               configureButton(what: "/")])
-        
-        configureVStackView([plusRow, minusRow, multiplyRow, divisionRow])
+        let elementRows = [
+            ["7", "8", "9", "+"],
+            ["4", "5", "6", "-"],
+            ["1", "2", "3", "*"],
+            ["AC", "0", "=", "/"]
+        ].map(makeButtonRow)
+        makeVStackView(elementRows)
     }
     
+    // MARK: - 라벨
     private func configureLabel() {
         
         valueLabel.text = "12345"
         valueLabel.textColor = .white
         valueLabel.textAlignment = .right
-        valueLabel.font = .systemFont(ofSize: 60)
+        valueLabel.font = .systemFont(ofSize: LayoutSize.labelFontSize)
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(valueLabel)
         
         valueLabel.snp.makeConstraints{
-            $0.height.equalTo(100)
-            $0.top.equalToSuperview().offset(200)
-            $0.leading.equalToSuperview().offset(30)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.height.equalTo(LayoutSize.labelHeight)
+            $0.top.equalToSuperview().offset(LayoutSize.labelTopSpacing)
+            $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
+            $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
+        
     }
     
-    private func configureButton(what element: String) -> UIButton {
+    // MARK: - 버튼
+    private func configureButton(buttonTitle: String) -> UIButton {
         
         let numberButton = UIButton()
         
-        numberButton.setTitle(element, for: .normal)
+        numberButton.setTitle(buttonTitle, for: .normal)
         numberButton.setTitleColor(.white, for: .normal)
-        numberButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        numberButton.titleLabel?.font = .boldSystemFont(ofSize: LayoutSize.buttonFontSize)
         
-        let backgroundColor = Int(element) == nil ? .orange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        let backgroundColor = Int(buttonTitle) == nil
+        ? UIColor.calculatorOperatorButton
+        : UIColor.calculatorNumberButton
         
         numberButton.backgroundColor = backgroundColor
-        numberButton.frame.size.width = 80
-        numberButton.frame.size.height = 80
-        numberButton.layer.cornerRadius = 40
+        
+        numberButton.frame.size.width = LayoutSize.buttonSize
+        numberButton.frame.size.height = LayoutSize.buttonSize
+        numberButton.layer.cornerRadius = LayoutSize.buttonCornerRadius
         
         return numberButton
+        
     }
     
-    private func configureHStackView(_ views: [UIButton]) -> UIStackView {
-      
+    // MARK: - 가로로 버튼 4개 가지는 StackView
+    private func makeHStackView(_ views: [UIButton]) -> UIStackView {
+        
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.backgroundColor = .black
-        hStackView.spacing = 10
+        hStackView.spacing = LayoutSize.stackSpacing
         hStackView.distribution = .fillEqually
-        for index in 0...views.count - 1 {
-            hStackView.addArrangedSubview(views[index])
+        for view in views {
+            hStackView.addArrangedSubview(view)
         }
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hStackView)
         
         hStackView.snp.makeConstraints{
-            $0.height.equalTo(80)
-            $0.leading.equalToSuperview().offset(30)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.height.equalTo(LayoutSize.buttonSize)
+            $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
+            $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
         
         return hStackView
         
     }
     
-    private func configureVStackView(_ stacks: [UIStackView]) {
+    // MARK: - 버튼 요소 이름 받아서 버튼 만들고 StackView로 4개 묶어서 리턴
+    private func makeButtonRow(buttonTitles: [String]) -> UIStackView {
+        let buttons = buttonTitles.map{ configureButton(buttonTitle: $0) }
+        return makeHStackView(buttons)
+    }
+    
+    
+    // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
+    private func makeVStackView(_ buttonRows: [UIStackView]) {
         
         let vStackView = UIStackView()
         vStackView.axis = .vertical
         vStackView.backgroundColor = .black
-        vStackView.spacing = 10
+        vStackView.spacing = LayoutSize.stackSpacing
         vStackView.distribution = .fillEqually
-        for index in 0...stacks.count - 1 {
-            vStackView.addArrangedSubview(stacks[index])
+        for buttonRow in buttonRows {
+            vStackView.addArrangedSubview(buttonRow)
         }
         vStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vStackView)
         
         vStackView.snp.makeConstraints{
-            $0.width.equalTo(350)
-            $0.top.equalTo(valueLabel.snp.bottom).offset(60)
+            $0.width.equalTo(LayoutSize.stackWidth)
+            $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
         }
-        
     }
 }
 
