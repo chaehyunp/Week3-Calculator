@@ -9,11 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+
     private let valueLabel = UILabel()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         view.backgroundColor = .black
         
         configureLabel()
@@ -79,6 +82,7 @@ class ViewController: UIViewController {
         ])
         
     }
+
 
 }
 
