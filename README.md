@@ -38,4 +38,4 @@ Swift와 Xcode를 활용해 간단한 계산기 앱을 개발합니다. 이 과�
 ---
 
 ### 🪲 트러블 슈팅
-- [Xcode : "The project ‘project’ is damaged..."](https://chaehyunp.github.io/blog/?post=%5B20241120%5D_%5BTIL241120%5D_%5BTIL%5D_%5B%5D_%5BXcode+%3A+%22The+project+%E2%80%98project%E2%80%99+is+damaged...%22%5D_%5B%5D.md)
+- [Xcode : "The project ‘project’ is damaged..."](https://chaehyunp.github.io/blog/?post=%5B20241120%5D_%5BTIL241120%5D_%5BTIL%5D_%5B%5D_%5BXcode+%22The+project+%E2%80%98project%E2%80%99+is+damaged%22%5D_%5B%5D.md)
