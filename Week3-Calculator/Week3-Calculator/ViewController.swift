@@ -120,8 +120,6 @@ class ViewController: UIViewController {
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
         }
-        
     }
-    
 }
 
