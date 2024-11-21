@@ -29,7 +29,4 @@ enum LayoutSize {
     
 }
 
-extension UIColor {
-    static let calculatorNumberButton = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-    static let calculatorOperatorButton: UIColor = .orange
-}
+
