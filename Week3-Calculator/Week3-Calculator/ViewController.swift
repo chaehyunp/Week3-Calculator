@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         valueLabel.text = "0"
         valueLabel.textColor = .white
         valueLabel.textAlignment = .right
-        valueLabel.font = .systemFont(ofSize: LayoutSize.labelFontSize)
+        valueLabel.font = .labelFont
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(valueLabel)
         
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         
         numberButton.setTitle(buttonTitle, for: .normal)
         numberButton.setTitleColor(.white, for: .normal)
-        numberButton.titleLabel?.font = .boldSystemFont(ofSize: LayoutSize.buttonFontSize)
+        numberButton.titleLabel?.font = .buttonFont
         
         let backgroundColor = Int(buttonTitle) == nil
         ? UIColor.calculatorOperatorButton
