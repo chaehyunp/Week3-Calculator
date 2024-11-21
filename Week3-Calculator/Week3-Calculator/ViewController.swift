@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-
+        
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -57,8 +57,8 @@ class ViewController: UIViewController {
         numberButton.titleLabel?.font = .buttonFont
         
         let backgroundColor = Int(buttonTitle) == nil
-        ? UIColor.calculatorOperatorButton
-        : UIColor.calculatorNumberButton
+                            ? UIColor.calculatorOperatorButton
+                            : UIColor.calculatorNumberButton
         
         numberButton.backgroundColor = backgroundColor
         
@@ -84,11 +84,10 @@ class ViewController: UIViewController {
             return
         }
         
-        valueLabel.text = if valueLabel.text == "0" {
-                            sender.currentTitle ?? ""
-                        } else {
-                            (valueLabel.text ?? "") + (sender.currentTitle ?? "")
-                        }
+        valueLabel.text = valueLabel.text == "0"
+                        ? sender.currentTitle ?? ""
+                        : (valueLabel.text ?? "") + (sender.currentTitle ?? "")
+        
         
     }
     
@@ -147,7 +146,7 @@ class ViewController: UIViewController {
     
     // MARK: - 계산 기능
     func calculate(expression: String) -> Int? {
-            let expression = NSExpression(format: expression)
+        let expression = NSExpression(format: expression)
         if let result = expression.expressionValue(with: nil, context: nil) as? Int {
             return result
         } else {
