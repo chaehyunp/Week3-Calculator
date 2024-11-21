@@ -10,7 +10,7 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    private let valueLabel = UILabel()
+    private var valueLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     // MARK: - 라벨
     private func configureLabel() {
         
-        valueLabel.text = "12345"
+        valueLabel.text = "0"
         valueLabel.textColor = .white
         valueLabel.textAlignment = .right
         valueLabel.font = .systemFont(ofSize: LayoutSize.labelFontSize)
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-        
+      
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -65,8 +65,20 @@ class ViewController: UIViewController {
         numberButton.frame.size.width = LayoutSize.buttonSize
         numberButton.frame.size.height = LayoutSize.buttonSize
         numberButton.layer.cornerRadius = LayoutSize.buttonCornerRadius
+        numberButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
         
         return numberButton
+        
+    }
+    
+    @objc
+    private func onTapButton(sender: UIButton) {
+        
+        valueLabel.text = if valueLabel.text == "0" {
+                            sender.currentTitle ?? ""
+                        } else {
+                            (valueLabel.text ?? "") + (sender.currentTitle ?? "")
+                        }
         
     }
     
@@ -100,7 +112,6 @@ class ViewController: UIViewController {
         return makeHStackView(buttons)
     }
     
-    
     // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
     private func makeVStackView(_ buttonRows: [UIStackView]) {
         
@@ -120,6 +131,6 @@ class ViewController: UIViewController {
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
         }
-    }
+    }    
 }
 
