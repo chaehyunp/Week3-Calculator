@@ -7,23 +7,40 @@
 
 import UIKit
 
+import SnapKit
+
 class ViewController: UIViewController {
     
-
     private let valueLabel = UILabel()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         view.backgroundColor = .black
         
         configureLabel()
-        configureHStackView([configureButton(what: "7"),
-                             configureButton(what: "8"),
-                             configureButton(what: "9"),
-                             configureButton(what: "+")])
+        let plusRow = configureHStackView([configureButton(what: "7"),
+                                           configureButton(what: "8"),
+                                           configureButton(what: "9"),
+                                           configureButton(what: "+")])
+        
+        let minusRow = configureHStackView([configureButton(what: "4"),
+                                            configureButton(what: "5"),
+                                            configureButton(what: "6"),
+                                            configureButton(what: "-")])
+        
+        let multiplyRow = configureHStackView([configureButton(what: "1"),
+                                               configureButton(what: "2"),
+                                               configureButton(what: "3"),
+                                               configureButton(what: "*")])
+        
+        let divisionRow = configureHStackView([configureButton(what: "AC"),
+                                               configureButton(what: "0"),
+                                               configureButton(what: "="),
+                                               configureButton(what: "/")])
+        
+        configureVStackView([plusRow, minusRow, multiplyRow, divisionRow])
+
     }
     
     private func configureLabel() {
@@ -33,15 +50,16 @@ class ViewController: UIViewController {
         valueLabel.textAlignment = .right
         valueLabel.font = .systemFont(ofSize: 60)
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
-//        valueLabel.backgroundColor = .white
+
         view.addSubview(valueLabel)
         
-        NSLayoutConstraint.activate([
-            valueLabel.heightAnchor.constraint(equalToConstant: 100),
-            valueLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            valueLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            valueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
-        ])
+        valueLabel.snp.makeConstraints{
+            $0.height.equalTo(100)
+            $0.top.equalToSuperview().offset(200)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
+        }
+
         
     }
     
@@ -59,10 +77,11 @@ class ViewController: UIViewController {
         
         return numberButton
 
+        
     }
     
-    private func configureHStackView(_ views: [UIButton]) {
-        
+    private func configureHStackView(_ views: [UIButton]) -> UIStackView {
+      
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.backgroundColor = .black
@@ -74,15 +93,38 @@ class ViewController: UIViewController {
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hStackView)
         
-        NSLayoutConstraint.activate([
-            hStackView.heightAnchor.constraint(equalToConstant: 80),
-            hStackView.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 100),
-            hStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            hStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
-        ])
+
+        hStackView.snp.makeConstraints{
+            $0.height.equalTo(80)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
+        }
+        
+        return hStackView
         
     }
-
+    
+    private func configureVStackView(_ stacks: [UIStackView]) {
+        
+        let vStackView = UIStackView()
+        vStackView.axis = .vertical
+        vStackView.backgroundColor = .black
+        vStackView.spacing = 10
+        vStackView.distribution = .fillEqually
+        for index in 0...stacks.count - 1 {
+            vStackView.addArrangedSubview(stacks[index])
+        }
+        vStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(vStackView)
+        
+        vStackView.snp.makeConstraints{
+            $0.width.equalTo(350)
+            $0.top.equalTo(valueLabel.snp.bottom).offset(60)
+            $0.centerX.equalToSuperview()
+        }
+        
+    }
+    
 
 }
 
