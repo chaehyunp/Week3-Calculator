@@ -1,8 +1,6 @@
-# 계산기 앱 만들기
+# 🧮 계산기 앱 만들기
 
----
-
-### 개요
+### 📑 개요
 
 Swift와 Xcode를 활용해 간단한 계산기 앱을 개발합니다. 이 과제는 Swift 문법을 바탕으로 Playground에서 구현한 로직을 UI와 통합해 실제 앱으로 구현하는 경험을 목표로 합니다.
 
@@ -39,4 +37,5 @@ Swift와 Xcode를 활용해 간단한 계산기 앱을 개발합니다. 이 과�
 
 ---
 
-
+### 🪲 트러블 슈팅
+- [Xcode : "The project ‘project’ is damaged..."](https://chaehyunp.github.io/blog/?post=%5B20241120%5D_%5BTIL241120%5D_%5BTIL%5D_%5B%5D_%5BXcode+%3A+%22The+project+%E2%80%98project%E2%80%99+is+damaged...%22%5D_%5B%5D.md)
