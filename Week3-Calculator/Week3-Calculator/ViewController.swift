@@ -48,6 +48,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
+      
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -73,6 +74,11 @@ class ViewController: UIViewController {
         
         guard sender.currentTitle != "AC" else {
             valueLabel.text = "0"
+            return
+        }
+        
+        guard sender.currentTitle != "=" else {
+            valueLabel.text = String(calculate(expression: valueLabel.text ?? "") ?? 0)
             return
         }
       
@@ -107,10 +113,11 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼 요소 이름 받아서 버튼 만들고 StackView로 4개 묶어서 리턴
     private func makeButtonRow(buttonTitles: [String]) -> UIStackView {
+      
         let buttons = buttonTitles.map{ configureButton(buttonTitle: $0) }
         return makeHStackView(buttons)
     }
-    
+  
     // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
     private func makeVStackView(_ buttonRows: [UIStackView]) {
         
@@ -129,7 +136,16 @@ class ViewController: UIViewController {
             $0.width.equalTo(LayoutSize.stackWidth)
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
-        } 
+        }
+    }
+    
+    // MARK: - 계산 기능
+    func calculate(expression: String) -> Int? {
+            let expression = NSExpression(format: expression)
+        if let result = expression.expressionValue(with: nil, context: nil) as? Int {
+            return result
+        } else {
+            return nil
+        }
     }
 }
-
