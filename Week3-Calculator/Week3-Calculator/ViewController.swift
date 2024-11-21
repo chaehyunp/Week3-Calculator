@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-
+      
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -112,7 +112,6 @@ class ViewController: UIViewController {
         return makeHStackView(buttons)
     }
     
-    
     // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
     private func makeVStackView(_ buttonRows: [UIStackView]) {
         
@@ -132,7 +131,6 @@ class ViewController: UIViewController {
             $0.top.equalTo(valueLabel.snp.bottom).offset(LayoutSize.stackSpacingWithLabel)
             $0.centerX.equalToSuperview()
         }
-        
-    }
-    
+    }    
 }
+
