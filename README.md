@@ -35,7 +35,6 @@ Swift와 Xcode를 활용해 간단한 계산기 앱을 개발합니다. 이 과�
 - [Level 6](https://github.com/SpartaCoding-iOS5/Week3-Calculator/pull/37) : 버튼 클릭 시 라벨에 숫자와 연산 기호가 차례로 표시되도록 구현합니다.
 - [Level 7](https://github.com/SpartaCoding-iOS5/Week3-Calculator/pull/38) : `AC` 버튼 클릭 시 초기화되어 기본 값 `0`이 표시되도록 구현합니다.
 - [Level 8](https://github.com/SpartaCoding-iOS5/Week3-Calculator/pull/50) : `=` 버튼을 클릭하면 수식이 계산되어 결과가 라벨에 표시되도록 구현합니다.
-
 - [추가 수정 내용](https://github.com/SpartaCoding-iOS5/Week3-Calculator/pull/55) : 구현 기능 외 파일 분리나 줄바꿈 등을 수정하였습니다.
 
 ---
