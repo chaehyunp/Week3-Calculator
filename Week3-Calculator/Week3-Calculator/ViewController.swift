@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class ViewController: UIViewController {
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
                                                configureButton(what: "/")])
         
         configureVStackView([plusRow, minusRow, multiplyRow, divisionRow])
+
     }
     
     private func configureLabel() {
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
         valueLabel.textAlignment = .right
         valueLabel.font = .systemFont(ofSize: 60)
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(valueLabel)
         
         valueLabel.snp.makeConstraints{
@@ -56,6 +59,7 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().offset(-30)
         }
+
         
     }
     
@@ -72,11 +76,12 @@ class ViewController: UIViewController {
         numberButton.layer.cornerRadius = 40
         
         return numberButton
+
         
     }
     
     private func configureHStackView(_ views: [UIButton]) -> UIStackView {
-        
+      
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.backgroundColor = .black
@@ -88,6 +93,7 @@ class ViewController: UIViewController {
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hStackView)
         
+
         hStackView.snp.makeConstraints{
             $0.height.equalTo(80)
             $0.leading.equalToSuperview().offset(30)
@@ -119,5 +125,6 @@ class ViewController: UIViewController {
         
     }
     
+
 }
 
