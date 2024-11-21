@@ -6,6 +6,7 @@
 	objectVersion = 77;
 	objects = {
 
+
 /* Begin PBXBuildFile section */
 		83EED73B2CE781D900746692 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83EED73A2CE781D900746692 /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				83EED73B2CE781D900746692 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +85,7 @@
 			);
 			name = "Week3-Calculator";
 			packageProductDependencies = (
+
 				83EED73A2CE781D900746692 /* SnapKit */,
 			);
 			productName = "Week3-Calculator";
@@ -114,6 +117,7 @@
 			mainGroup = 83EED6A72CE6E66500746692;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+
 				83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -341,6 +345,7 @@
 		};
 /* End XCConfigurationList section */
 
+
 /* Begin XCRemoteSwiftPackageReference section */
 		83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -353,6 +358,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+
 		83EED73A2CE781D900746692 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */;

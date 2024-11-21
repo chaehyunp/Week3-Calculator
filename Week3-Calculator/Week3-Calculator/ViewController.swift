@@ -56,7 +56,6 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().offset(-30)
         }
-        
     }
     
     private func configureButton(what element: String) -> UIButton {
@@ -70,17 +69,15 @@ class ViewController: UIViewController {
         let backgroundColor = Int(element) == nil ? .orange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
         
         numberButton.backgroundColor = backgroundColor
-        
         numberButton.frame.size.width = 80
         numberButton.frame.size.height = 80
         numberButton.layer.cornerRadius = 40
         
         return numberButton
-        
     }
     
     private func configureHStackView(_ views: [UIButton]) -> UIStackView {
-        
+      
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.backgroundColor = .black
@@ -122,6 +119,5 @@ class ViewController: UIViewController {
         }
         
     }
-    
 }
 
