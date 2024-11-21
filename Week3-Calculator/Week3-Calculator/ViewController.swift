@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     
     // MARK: - 버튼
     private func configureButton(buttonTitle: String) -> UIButton {
-        
+
         let numberButton = UIButton()
         
         numberButton.setTitle(buttonTitle, for: .normal)
@@ -106,17 +106,16 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(LayoutSize.horizontalPadding)
             $0.trailing.equalToSuperview().offset(-LayoutSize.horizontalPadding)
         }
-        
         return hStackView
     }
     
     // MARK: - 버튼 요소 이름 받아서 버튼 만들고 StackView로 4개 묶어서 리턴
     private func makeButtonRow(buttonTitles: [String]) -> UIStackView {
+      
         let buttons = buttonTitles.map{ configureButton(buttonTitle: $0) }
         return makeHStackView(buttons)
     }
-    
-    
+  
     // MARK: - 세로 ButtonRow(가로 버튼 4개) 4줄
     private func makeVStackView(_ buttonRows: [UIStackView]) {
         
@@ -147,5 +146,4 @@ class ViewController: UIViewController {
             return nil
         }
     }
-    
 }
