@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import SnapKit
 
 class ViewController: UIViewController {
@@ -40,7 +39,6 @@ class ViewController: UIViewController {
                                                configureButton(what: "/")])
         
         configureVStackView([plusRow, minusRow, multiplyRow, divisionRow])
-
     }
     
     private func configureLabel() {
@@ -50,7 +48,6 @@ class ViewController: UIViewController {
         valueLabel.textAlignment = .right
         valueLabel.font = .systemFont(ofSize: 60)
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
-
         view.addSubview(valueLabel)
         
         valueLabel.snp.makeConstraints{
@@ -59,8 +56,6 @@ class ViewController: UIViewController {
             $0.leading.equalToSuperview().offset(30)
             $0.trailing.equalToSuperview().offset(-30)
         }
-
-        
     }
     
     private func configureButton(what element: String) -> UIButton {
@@ -70,14 +65,15 @@ class ViewController: UIViewController {
         numberButton.setTitle(element, for: .normal)
         numberButton.setTitleColor(.white, for: .normal)
         numberButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        numberButton.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        
+        let backgroundColor = Int(element) == nil ? .orange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+        
+        numberButton.backgroundColor = backgroundColor
         numberButton.frame.size.width = 80
         numberButton.frame.size.height = 80
         numberButton.layer.cornerRadius = 40
         
         return numberButton
-
-        
     }
     
     private func configureHStackView(_ views: [UIButton]) -> UIStackView {
@@ -93,7 +89,6 @@ class ViewController: UIViewController {
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hStackView)
         
-
         hStackView.snp.makeConstraints{
             $0.height.equalTo(80)
             $0.leading.equalToSuperview().offset(30)
@@ -124,7 +119,5 @@ class ViewController: UIViewController {
         }
         
     }
-    
-
 }
 

@@ -8,7 +8,7 @@
 
 
 /* Begin PBXBuildFile section */
-		83EED7292CE7643900746692 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83EED7282CE7643900746692 /* SnapKit */; };
+		83EED73B2CE781D900746692 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83EED73A2CE781D900746692 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 
-				83EED7292CE7643900746692 /* SnapKit in Frameworks */,
-
+				83EED73B2CE781D900746692 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +86,7 @@
 			name = "Week3-Calculator";
 			packageProductDependencies = (
 
-				83EED7282CE7643900746692 /* SnapKit */,
+				83EED73A2CE781D900746692 /* SnapKit */,
 			);
 			productName = "Week3-Calculator";
 			productReference = 83EED6B02CE6E66500746692 /* Week3-Calculator.app */;
@@ -118,9 +117,9 @@
 			mainGroup = 83EED6A72CE6E66500746692;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				83EED7272CE7643900746692 /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
 
+				83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 83EED6B12CE6E66500746692 /* Products */;
 			projectDirPath = "";
@@ -348,7 +347,7 @@
 
 
 /* Begin XCRemoteSwiftPackageReference section */
-		83EED7272CE7643900746692 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -359,9 +358,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		83EED7282CE7643900746692 /* SnapKit */ = {
+
+		83EED73A2CE781D900746692 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 83EED7272CE7643900746692 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 83EED7392CE781D900746692 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
